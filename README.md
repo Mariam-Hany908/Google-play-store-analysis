@@ -1,64 +1,45 @@
-Google Play Store Apps Dataset
-Overview
+# Google Play Store Apps Analysis
 
-This dataset contains information about apps available on the Google Play Store. It includes various attributes related to each app, such as name, category, rating, number of reviews, size, number of installs, type (free or paid), price, content rating, and genres.
+## Overview
+This project analyzes the Google Play Store apps dataset to explore app characteristics, pricing, ratings, and user engagement. It includes data cleaning, preprocessing, and visualization to identify trends, top apps, and estimated revenue insights.
 
-Columns Description
-Column	Description
-App	Name of the application
-Category	Category the app belongs to
-Rating	Overall user rating of the app
-Reviews	Number of user reviews
-Size	Size of the app (e.g., 10M, 500K)
-Installs	Number of user downloads/installs
-Type	Free or Paid
-Price	Price of the app in USD
-Content Rating	Age group targeted (e.g., Everyone, Teen, Mature 17+)
-Genres	Main genre and sub-genres (separated by ;)
-Current Ver	Current version of the app
-Android Ver	Minimum required Android version
-Data Cleaning / Preprocessing Notes
+## Dataset Description
+The dataset contains information about apps available on the Google Play Store, including:
 
-Numeric conversion:
+- **App**: Name of the application
+- **Category**: Category the app belongs to
+- **Rating**: Overall user rating
+- **Reviews**: Number of user reviews
+- **Size**: Size of the app (e.g., 10M, 500K)
+- **Installs**: Number of user downloads/installs
+- **Type**: Free or Paid
+- **Price**: Price of the app in USD
+- **Content Rating**: Age group targeted (e.g., Everyone, Teen)
+- **Genres**: Main genre and sub-genres (separated by `;`)
+- **Current Ver**: Current version of the app
+- **Android Ver**: Minimum required Android version
 
-Size was converted to numeric by splitting units (e.g., 10M → 10000 KB).
+## Data Cleaning / Preprocessing
+- Converted `Size`, `Price`, `Installs`, and `Rating` to numeric values after cleaning.  
+- Handled missing values in columns like `Type`, `Content Rating`, `Current Ver`, and `Android Ver`.  
+- Removed outliers in `Rating` and `Price`.  
+- Split `Genres` into main and sub-genres (separated by `;`).  
 
-Price was converted to float (removing $).
+## Analysis / Visualizations
+- Top apps by price and rating.  
+- Free vs. Paid app comparison (size, price, ratings).  
+- Estimated revenue from apps with high installs.  
+- Correlation between `Rating`, `Reviews`, `Size`, and `Price`.  
+- Distribution of apps across categories and content ratings.
 
-Installs was cleaned (removing + and ,) and converted to integer.
+## Potential Insights
+- Identify trends in app pricing and popularity.  
+- Discover which categories have the most highly-rated or expensive apps.  
+- Estimate Google’s revenue from top-installed apps.  
 
-Rating converted to numeric, filtering out invalid outliers (>5).
+## Example Visualizations
+- Bar charts for top apps by price or installs.  
+- Boxplots comparing sizes or ratings of free vs paid apps.  
+- Heatmaps showing correlations between numeric features.  
+- Pie charts for distribution of app types or categories.
 
-Missing values:
-
-Columns like Type, Content Rating, Current Ver, and Android Ver had missing values, handled by dropping or imputation when appropriate.
-
-Outliers:
-
-Price and Rating outliers were handled (e.g., log transformation for skewed distribution, or filtering unrealistic values).
-
-Genres:
-
-Some apps belong to multiple genres, separated by ;. The first value is the main genre, the second (if exists) is the sub-genre.
-
-Potential Analysis / Use Cases
-
-Identify the most expensive apps and their ratings.
-
-Compare free vs paid apps in terms of size, price, and ratings.
-
-Determine the estimated revenue for Google from high-install apps.
-
-Explore app distribution across categories and content ratings.
-
-Analyze correlation between Rating, Reviews, Size, and Price.
-
-Example Visualizations
-
-Bar charts for top apps by price or installs.
-
-Boxplots comparing sizes or ratings of free vs paid apps.
-
-Heatmaps to show correlation between numeric features.
-
-Pie charts for distribution of app types or categories.
